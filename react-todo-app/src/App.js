@@ -29,9 +29,9 @@ export default function App() {
 
 
   return (
-    <div className="container">
-      <div className="todoBlock">
-        <div className="title">
+    <div>
+      <div>
+        <div>
           <h1>할 일 목록</h1>
           
         </div>

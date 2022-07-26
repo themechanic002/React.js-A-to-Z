@@ -3,23 +3,7 @@ import React from 'react'
 export default function List({ todoData, setTodoData }) {
 
 
-    let btnStyle = {
-        color: "#fff",
-        border: "none",
-        padding: "5px 9px",
-        borderRadius: "50%",
-        cursor: "pointer",
-        float: "right"
-    }
 
-    // 줄 긋기 여부
-    const listStyle = (completed) => {
-        return {
-            padding: "10px",
-            borderBottom: "1px #ccc dotted",
-            textDecoration: completed ? "line-through" : "none"
-        }
-    }
 
 
     const handleClick = (id) => {
@@ -45,14 +29,14 @@ export default function List({ todoData, setTodoData }) {
         /* Map 메소드 사용하는 방법 */
         <div>
             {todoData.map((data) => (
-                <div style={listStyle(data.completed)} key={data.id}>
+                <div key={data.id}>
                     <input
                         type="checkbox"
                         defaultChecked={data.completed}
                         onChange={() => handleCompletedChange(data.id)}
                     />
                     {data.title}
-                    <button style={btnStyle} onClick={() => handleClick(data.id)}>x</button>
+                    <button onClick={() => handleClick(data.id)}>x</button>
                 </div>
             ))}
         </div>
