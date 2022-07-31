@@ -4,9 +4,11 @@ import "./App.css";
 import Form from "./components/Form";
 import Lists from "./components/Lists";
 
+const initialTodoData = localStorage.getItem("todoData") ? JSON.parse(localStorage.getItem("todoData")) : [];
+
 export default function App() {
 
-  const [todoData, setTodoData] = useState([]);
+  const [todoData, setTodoData] = useState(initialTodoData);
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -23,12 +25,16 @@ export default function App() {
     // 원래 있던 데이터 리스트에 새로운 항목 추가
     setTodoData(prev => [...prev, newTodo]);
 
+    localStorage.setItem('todoData', JSON.stringify([...todoData, newTodo]));
+
     // 입력 버튼 누르면 글 입력부분 초기화
     setValue("");
   }
 
   const handleRemoveClick = () => {
     setTodoData([]);
+
+    localStorage.setItem('todoData', JSON.stringify([]));
   };
 
 

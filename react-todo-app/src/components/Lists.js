@@ -4,10 +4,6 @@ import List from './List';
 
 export default function Lists({ todoData, setTodoData }) {
 
-
-
-
-
     const handleEnd = (result) => {
         if(!result.destination) return;
 
@@ -18,6 +14,8 @@ export default function Lists({ todoData, setTodoData }) {
         newTodoData.splice(result.destination.index, 0, reorderedItem);
 
         setTodoData(newTodoData);
+
+        localStorage.setItem('todoData', JSON.stringify(newTodoData));
     }
 
     return (
