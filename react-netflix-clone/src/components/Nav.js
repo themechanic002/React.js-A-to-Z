@@ -4,19 +4,19 @@ import './Nav.css'
 const Nav = () => {
 
   const [show, setShow] = useState(false);
-  
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if(window.scrollY > 50) {
-         setShow(true);
+      if (window.scrollY > 50) {
+        setShow(true);
       } else {
         setShow(false);
       }
     });
-    
-  
+
+
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", () => { });
     }
   }, []);
 
@@ -27,7 +27,7 @@ const Nav = () => {
         alt='Netflix logo'
         src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/220px-Netflix_2015_logo.svg.png'
         className='nav__logo'
-        onClick={() => window.location.href='https://www.netflix.com/kr/'}
+        onClick={() => window.location.href = 'https://www.netflix.com/kr/'}
       />
       <img
         alt='User logged'

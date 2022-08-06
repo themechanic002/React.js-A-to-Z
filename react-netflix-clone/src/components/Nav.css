@@ -23,6 +23,10 @@
   object-fit: contain;
 }
 
+.nav__logo:hover {
+  cursor: pointer;
+}
+
 .nav__avatar {
   position: fixed;
   right: 40px;
