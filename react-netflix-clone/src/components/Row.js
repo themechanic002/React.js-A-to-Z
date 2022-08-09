@@ -21,10 +21,10 @@ const Row = ({ isLargeRow, title, id, fetchURL }) => {
     <section className='row'>
       <h2>{title}</h2>
       <div className='slider'>
-        <div className='slider__arrow-left'>
-          <span className='arrow' onClick={() => {
+        <div className='slider__arrow-left' onClick={() => {
             document.getElementById(id).scrollLeft -= window.innerWidth - 80;
-          }}>{"<"}</span>
+          }}>
+          <span className='arrow'>{"<"}</span>
         </div>
         <div id={id} className="row__posters">
           {movies.map(movie => (
@@ -36,10 +36,10 @@ const Row = ({ isLargeRow, title, id, fetchURL }) => {
             />
           ))}
         </div>
-        <div className='slider__arrow-right'>
-          <span className='arrow' onClick={() => {
+        <div className='slider__arrow-right' onClick={() => {
             document.getElementById(id).scrollLeft += window.innerWidth - 80;
-          }}>{">"}</span>
+          }}>
+          <span className='arrow'>{">"}</span>
         </div>
 
       </div>
