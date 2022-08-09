@@ -3,6 +3,7 @@ import './App.css';
 import Banner from './components/Banner';
 import Nav from './components/Nav';
 import Row from './components/Row';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
         fetchURL={requests.fetchComedyMovies}
         isLargeRow="false"
       />
+
+      <Footer></Footer>
       
     </div>
   );
