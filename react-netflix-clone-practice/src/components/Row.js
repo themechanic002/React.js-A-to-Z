@@ -1,10 +1,13 @@
 import axios from '../api/axios';
 import React, { useEffect, useState } from 'react'
 import './Row.css';
+import MovieModal from './MovieModal/index';
 
 const Row = ({ title, isLarge, fetchUrl }) => {
 
   const [movies, setMovies] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [movieSelected, setMovieSelected] = useState({});
 
   useEffect(() => {
     getData();
@@ -13,12 +16,13 @@ const Row = ({ title, isLarge, fetchUrl }) => {
   const getData = async () => {
     const request = await axios.get(fetchUrl);
     setMovies(request.data.results);
-    console.log('movie', movies)
+    console.log('movie', request);
   }
 
   const arrowRight = () => {
     document.getElementById(`posters_${title}`).scrollLeft += 800;
   }
+
   const arrowLeft = () => {
     document.getElementById(`posters_${title}`).scrollLeft -= 800;
   }
@@ -41,6 +45,10 @@ const Row = ({ title, isLarge, fetchUrl }) => {
               className={`row__poster ${isLarge && "row__posterLarge"}`}
               src={`https://image.tmdb.org/t/p/original${isLarge? movie.poster_path : movie.backdrop_path}`}
               alt={movie.title}
+              onClick={() => {
+                setModalOpen(true);
+                setMovieSelected(movie);
+              }}
               />
             ))
           }
@@ -50,6 +58,13 @@ const Row = ({ title, isLarge, fetchUrl }) => {
         </div>
 
       </div>
+      
+      {modalOpen && (
+        <MovieModal
+          {...movieSelected}
+          setModalOpen = {setModalOpen}
+        />
+      )}
 
     </section>
   )
