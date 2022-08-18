@@ -19,7 +19,6 @@ const Row = ({ title, isLarge, fetchUrl }) => {
   const arrowRight = () => {
     document.getElementById(`posters_${title}`).scrollLeft += 800;
   }
-
   const arrowLeft = () => {
     document.getElementById(`posters_${title}`).scrollLeft -= 800;
   }
