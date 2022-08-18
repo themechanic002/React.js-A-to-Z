@@ -24,7 +24,7 @@ const Banner = ({ fetchUrl }) => {
     <header
       className='banner'
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
         backgroundPosition: "top center",
         backgroundSize: "cover"
       }}>
