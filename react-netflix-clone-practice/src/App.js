@@ -11,9 +11,28 @@ function App() {
     <div className="App">
       <Nav></Nav>
       <Banner
-        fetchUrl={requests.fetchTopRated}
+        fetchUrl={requests.fetchNowPlaying}
       />
-      <Row></Row>
+      <Row
+        title = "Netflix Originals"
+        isLarge = {true}
+        fetchUrl={requests.fetchNetflixOriginals}
+      />
+      <Row
+        title = "Action"
+        isLarge = {false}
+        fetchUrl={requests.fetchActionMovies}
+      />
+      <Row
+        title = "Comedy"
+        isLarge = {false}
+        fetchUrl={requests.fetchComedyMovies}
+      />
+      <Row
+        title = "Romance"
+        isLarge = {false}
+        fetchUrl={requests.fetchRomanceMovies}
+      />
       <Footer></Footer>
     </div>
   );
