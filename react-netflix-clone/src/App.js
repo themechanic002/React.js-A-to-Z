@@ -1,53 +1,37 @@
-import requests from './api/requests';
+import { Outlet, Routes, Route } from "react-router-dom"
 import './App.css';
-import Banner from './components/Banner';
 import Nav from './components/Nav';
-import Row from './components/Row';
 import Footer from './components/Footer';
+import DetailPage from "./pages/DetailPage";
+import MainPage from "./pages/MainPage";
+import SearchPage from "./pages/SearchPage";
+
+
+const Layout = () => {
+  return(
+    <div>
+      <Nav />
+
+      <Outlet />
+
+      <Footer />
+    </div>
+  )
+}
 
 
 function App() {
   return (
     <div className="app">
-      <Nav></Nav>
-      <Banner></Banner>
-  
-      <Row
-        title="NETFLIX ORIGINALS"
-        id="NO"
-        fetchURL={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-      />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />}/>
+          <Route path=":movieId" element={<DetailPage/>}/>
+          <Route path="search" element={<SearchPage/>}/>
 
-      <Row
-        title="Trending Now"
-        id="TN"
-        fetchURL={requests.fetchTrending}
-        isLargeRow={false}
-      />
+        </Route>
+      </Routes>
 
-      <Row
-        title="Top Rated"
-        id="TR"
-        fetchURL={requests.fetchTopRated}
-        isLargeRow={false}
-      />
-
-      <Row
-        title="Action Movies"
-        id="AM"
-        fetchURL={requests.fetchActionMovies}
-        isLargeRow={false}
-      />
-
-      <Row
-        title="Comedy Movies"
-        id="CM"
-        fetchURL={requests.fetchComedyMovies}
-        isLargeRow={false}
-      />
-
-      <Footer></Footer>
       
     </div>
   );
