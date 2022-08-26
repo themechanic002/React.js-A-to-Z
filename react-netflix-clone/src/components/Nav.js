@@ -34,7 +34,7 @@ const Nav = () => {
         alt='Netflix logo'
         src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/220px-Netflix_2015_logo.svg.png'
         className='nav__logo'
-        onClick={() => window.location.href = 'https://www.netflix.com/kr/'}
+        onClick={() => window.location.href = './'}
       />
 
       <input
