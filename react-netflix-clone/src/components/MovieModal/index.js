@@ -11,8 +11,19 @@ const MovieModal = ({
   vote_average,
   setModalOpen
 }) => {
+
+  // 모달 외부 영역 눌렀을 때 모달 닫기
+  const handleModlaOff = (e) => {
+    const clicked = e.target.className;
+    console.log(clicked);
+    if(clicked === 'wrapper-modal'){
+      setModalOpen(false);
+    }
+    else return;
+  }
+
   return (
-    <div className='presentation'>
+    <div className='presentation' onClick={handleModlaOff}>
       <div className='wrapper-modal'>
         <div className='modal'>
           <span onClick={() => setModalOpen(false)} className='modal-close'>X</span>
